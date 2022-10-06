@@ -65,9 +65,9 @@ Um nome deve ser _curto_, _intuitivo_ e _descritivo_:
 
 - **Curto**. Um nome não deve demorar para ser digitado e, portanto, para ser lembrado;
 
-- **Intuitive**. Um nome deve ser lido de forma natural, o mais próximo do que se é usado comumente no idioma;
+- **Intuitivo**. Um nome deve ser lido de forma natural, o mais próximo do que se é usado comumente no idioma;
 
-- **Descriptive**. Um nome deve refletir o que faz/possui da maneira mais eficiente.
+- **Descritivo**. Um nome deve refletir o que faz/possui da maneira mais eficiente.
 
 ```js
 /* Ruim */
