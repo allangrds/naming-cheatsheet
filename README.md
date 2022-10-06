@@ -8,7 +8,7 @@
 
 - [Escreva em inglês](#escreva-em-inglês)
 - [Padrão de nomenclatura](#padrão-de-nomenclatura)
-- [S-I-D](#s-i-d)
+- [C-I-D](#c-i-d)
 - [Avoid contractions](#avoid-contractions)
 - [Avoid context duplication](#avoid-context-duplication)
 - [Reflect the expected result](#reflect-the-expected-result)
@@ -59,24 +59,26 @@ const page_count = 5
 const should_update = true
 ```
 
-## S-I-D
+## C-I-D
 
-A name must be _short_, _intuitive_ and _descriptive_:
+Um nome deve ser _curto_, _intuitivo_ e _descritivo_:
 
-- **Short**. A name must not take long to type and, therefore, remember;
-- **Intuitive**. A name must read naturally, as close to the common speech as possible;
-- **Descriptive**. A name must reflect what it does/possesses in the most efficient way.
+- **Curto**. Um nome não deve demorar para ser digitado e, portanto, para ser lembrado;
+
+- **Intuitive**. Um nome deve ser lido de forma natural, o mais próximo do que se é usado comumente no idioma;
+
+- **Descriptive**. Um nome deve refletir o que faz/possui da maneira mais eficiente.
 
 ```js
-/* Bad */
-const a = 5 // "a" could mean anything
-const isPaginatable = a > 10 // "Paginatable" sounds extremely unnatural
-const shouldPaginatize = a > 10 // Made up verbs are so much fun!
+/* Ruim */
+const a = 5 // "a" pode ser significar qualquer coisa
+const isPaginatable = a > 10 // "Paginatable" não tem um som legal
+const shouldPaginatize = a > 10 // Verbos compostos são muito divertidos!
 
-/* Good */
+/* Bom */
 const postCount = 5
 const hasPagination = postCount > 10
-const shouldPaginate = postCount > 10 // alternatively
+const shouldPaginate = postCount > 10 // alternativa
 ```
 
 ## Avoid contractions
