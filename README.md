@@ -8,7 +8,7 @@
 
 - [Escreva em inglês](#escreva-em-inglês)
 - [Padrão de nomenclatura](#padrão-de-nomenclatura)
-- [S-I-D](#s-i-d)
+- [C-I-D](#c-i-d)
 - [Avoid contractions](#avoid-contractions)
 - [Avoid context duplication](#avoid-context-duplication)
 - [Reflect the expected result](#reflect-the-expected-result)
@@ -71,7 +71,7 @@ Um nome deve ser _curto_, _intuitivo_ e _descritivo_:
 
 ```js
 /* Ruim */
-const a = 5 // "a" pode ser qualquer coisa
+const a = 5 // "a" pode ser significar qualquer coisa
 const isPaginatable = a > 10 // "Paginatable" não tem um som legal
 const shouldPaginatize = a > 10 // Verbos compostos são muito divertidos!
 
