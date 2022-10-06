@@ -7,7 +7,7 @@
 # Cheatsheet de nomeclatura
 
 - [Escreva em inglês](#escreva-em-inglês)
-- [Naming convention](#naming-convention)
+- [Padrão de nomenclatura](#padrão-de-nomenclatura)
 - [S-I-D](#s-i-d)
 - [Avoid contractions](#avoid-contractions)
 - [Avoid context duplication](#avoid-context-duplication)
