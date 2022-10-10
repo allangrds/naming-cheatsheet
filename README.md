@@ -86,10 +86,10 @@ const shouldPaginate = postCount > 10 // alternativa
 **Não** use contrações. Elas não contribuem para nada além de diminuir a legibilidade do código. Encontrar um nome curto e descritivo pode ser difícil, mas a contração não é desculpa para não fazê-lo.
 
 ```js
-/* Bom */
+/* Ruim */
 const onItmClk = () => {}
 
-/* Ruim */
+/* Bom */
 const onItemClick = () => {}
 ```
 
