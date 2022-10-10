@@ -9,7 +9,7 @@
 - [Escreva em inglês](#escreva-em-inglês)
 - [Padrão de nomenclatura](#padrão-de-nomenclatura)
 - [C-I-D](#c-i-d)
-- [Evite contrações(#evite-contrações)
+- [Evite contrações](#evite-contrações)
 - [Avoid context duplication](#avoid-context-duplication)
 - [Reflect the expected result](#reflect-the-expected-result)
 - [Naming functions](#naming-functions)
