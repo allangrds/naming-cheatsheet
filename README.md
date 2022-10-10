@@ -9,7 +9,7 @@
 - [Escreva em inglês](#escreva-em-inglês)
 - [Padrão de nomenclatura](#padrão-de-nomenclatura)
 - [C-I-D](#c-i-d)
-- [Avoid contractions](#avoid-contractions)
+- [Evite contrações(#evite-contrações)
 - [Avoid context duplication](#avoid-context-duplication)
 - [Reflect the expected result](#reflect-the-expected-result)
 - [Naming functions](#naming-functions)
@@ -81,15 +81,15 @@ const hasPagination = postCount > 10
 const shouldPaginate = postCount > 10 // alternativa
 ```
 
-## Avoid contractions
+## Evite contrações
 
-Do **not** use contractions. They contribute to nothing but decreased readability of the code. Finding a short, descriptive name may be hard, but contraction is not an excuse for not doing so.
+**Não** use contrações. Elas não contribuem para nada além de diminuir a legibilidade do código. Encontrar um nome curto e descritivo pode ser difícil, mas a contração não é desculpa para não fazê-lo.
 
 ```js
-/* Bad */
+/* Bom */
 const onItmClk = () => {}
 
-/* Good */
+/* Ruim */
 const onItemClick = () => {}
 ```
 
