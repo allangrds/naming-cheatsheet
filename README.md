@@ -10,7 +10,7 @@
 - [Padrão de nomenclatura](#padrão-de-nomenclatura)
 - [C-I-D](#c-i-d)
 - [Evite contrações](#evite-contrações)
-- [Avoid context duplication](#avoid-context-duplication)
+- [Evite duplicar o contexto](#evite-duplicar-o-contexto)
 - [Reflect the expected result](#reflect-the-expected-result)
 - [Naming functions](#naming-functions)
   - [A/HC/LC pattern](#ahclc-pattern)
@@ -93,16 +93,16 @@ const onItmClk = () => {}
 const onItemClick = () => {}
 ```
 
-## Avoid context duplication
+## Evite duplicar o contexto
 
-A name should not duplicate the context in which it is defined. Always remove the context from a name if that doesn't decrease its readability.
+Um nome não deve duplicar o contexto em que está definido. Sempre remova o contexto de um nome se isso não diminuir sua legibilidade.
 
 ```js
 class MenuItem {
-  /* Method name duplicates the context (which is "MenuItem") */
+  /* O nome do método duplica o contexto (que é "MenuItem") */
   handleMenuItemClick = (event) => { ... }
 
-  /* Reads nicely as `MenuItem.handleClick()` */
+  /* Lemos tranquilamente como `MenuItem.handleClick()` */
   handleClick = (event) => { ... }
 }
 ```
