@@ -11,7 +11,7 @@
 - [C-I-D](#c-i-d)
 - [Evite contrações](#evite-contrações)
 - [Evite duplicar o contexto](#evite-duplicar-o-contexto)
-- [Reflect the expected result](#reflect-the-expected-result)
+- [Reflita o resultado esperado](#reflita-o-resultado-esperado)
 - [Naming functions](#naming-functions)
   - [A/HC/LC pattern](#ahclc-pattern)
     - [Actions](#actions)
@@ -107,18 +107,18 @@ class MenuItem {
 }
 ```
 
-## Reflect the expected result
+## Reflita o resultado esperado
 
-A name should reflect the expected result.
+Um nome deve refletir o resultado esperado.
 
 ```jsx
-/* Bad */
+/* Ruim */
 const isEnabled = itemCount > 3
-return <Button disabled={!isEnabled} />
+return <Button disabled={!isEnabled} /> //estou verificando a negação da condição acima
 
-/* Good */
+/* Bom */
 const isDisabled = itemCount <= 3
-return <Button disabled={isDisabled} />
+return <Button disabled={isDisabled} /> //estou verificando a condição acima
 ```
 
 ---
