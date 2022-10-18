@@ -17,7 +17,7 @@
     - [Actions](#actions)
     - [Context](#context)
     - [Prefixes](#prefixes)
-- [Singular and Plurals](#singular-and-plurals)
+- [Singular e Plural](#singular-e-plural)
 
 ---
 
@@ -362,16 +362,18 @@ async function getPosts() {
 }
 ```
 
-## Singular and Plurals
+## Singular e Plural
 
 Like a prefix, variable names can be made singular or plural depending on whether they hold a single value or multiple values.
 
+Como um prefixo, os nomes das variáveis podem ser colocados no singular ou no plural dependendo se eles contêm um único valor ou vários valores.
+
 ```js
-/* Bad */
+/* Ruim */
 const friends = 'Bob'
 const friend = ['Bob', 'Tony', 'Tanya']
 
-/* Good */
+/* Bom */
 const friend = 'Bob'
 const friends = ['Bob', 'Tony', 'Tanya']
 ```
