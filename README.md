@@ -12,11 +12,11 @@
 - [Evite contrações](#evite-contrações)
 - [Evite duplicar o contexto](#evite-duplicar-o-contexto)
 - [Reflita o resultado esperado](#reflita-o-resultado-esperado)
-- [Naming functions](#naming-functions)
-  - [A/HC/LC pattern](#ahclc-pattern)
-    - [Actions](#actions)
-    - [Context](#context)
-    - [Prefixes](#prefixes)
+- [Nomeando funções](#nomeando-funções)
+  - [Padrão A/HC/LC](#padrao-ahclc)
+    - [Ações](#ações)
+    - [Contexto](#contexto)
+    - [Prefixos](#prefixos)
 - [Singular e Plural](#singular-e-plural)
 
 ---
@@ -123,37 +123,37 @@ return <Button disabled={isDisabled} /> //estou verificando a condição acima
 
 ---
 
-# Naming functions
+# Nomeando funções
 
-## A/HC/LC Pattern
+## Padrão A/HC/LC
 
-There is a useful pattern to follow when naming functions:
+Existe um padrão muito útil pra se seguir quando precisar nomear funções:
 
 ```
-prefix? + action (A) + high context (HC) + low context? (LC)
+prefixo? + ação (A) + alto (high) contexto (HC) + baixo (low) contexto? (LC)
 ```
 
-Take a look at how this pattern may be applied in the table below.
+Dê uma olhada em como este padrão pode ser aplicado na tabela abaixo.
 
-| Name                   | Prefix   | Action (A) | High context (HC) | Low context (LC) |
-| ---------------------- | -------- | ---------- | ----------------- | ---------------- |
-| `getUser`              |          | `get`      | `User`            |                  |
-| `getUserMessages`      |          | `get`      | `User`            | `Messages`       |
-| `handleClickOutside`   |          | `handle`   | `Click`           | `Outside`        |
-| `shouldDisplayMessage` | `should` | `Display`  | `Message`         |                  |
+| Nome                   | Prefixo  | Ação (A)   | Alto contexto(HC) | Baixo contexto(LC)|
+| ---------------------- | -------- | ---------- | ----------------- | ----------------- |
+| `getUser`              |          | `get`      | `User`            |                   |
+| `getUserMessages`      |          | `get`      | `User`            | `Messages`        |
+| `handleClickOutside`   |          | `handle`   | `Click`           | `Outside`         |
+| `shouldDisplayMessage` | `should` | `Display`  | `Message`         |                   |
 
-> **Note:** The order of context affects the meaning of a variable. For example, `shouldUpdateComponent` means _you_ are about to update a component, while `shouldComponentUpdate` tells you that _component_ will update on itself, and you are but controlling when it should be updated.
-> In other words, **high context emphasizes the meaning of a variable**.
+> **Nota:** A ordem do contexto afeta o significado de uma variável. Por exemplo, `shouldUpdateComponent` significa que _você_ está prestes a atualizar um componente, enquanto `shouldComponentUpdate` diz que o _componente_ será atualizado por si só, e você apenas está contrlando quando isto deve acontecer.
+> Em outras palavras, **alto contexto enfatiza o significado de uma variável**.
 
 ---
 
-## Actions
+## Ações
 
-The verb part of your function name. The most important part responsible for describing what the function _does_.
+A parte verbal do nome de sua função. A parte mais importante responsável por descrever o que a função _faz_.
 
 ### `get`
 
-Accesses data immediately (i.e. shorthand getter of internal data).
+Acessa o dado imediatamente (i.e. getter de dados internos abreviado).
 
 ```js
 function getFruitCount() {
@@ -161,9 +161,9 @@ function getFruitCount() {
 }
 ```
 
-> See also [compose](#compose).
+> Veja também [compose](#compose).
 
-You can use `get` when performing asynchronous operations as well:
+Você pode usar `get` quando disparar operações assíncronas tais como:
 
 ```js
 async function getUser(id) {
@@ -174,7 +174,7 @@ async function getUser(id) {
 
 ### `set`
 
-Sets a variable in a declarative way, with value `A` to value `B`.
+Seta uma variável de forma declarativa, com valor `A` pro valor `B`.
 
 ```js
 let fruits = 0
@@ -189,7 +189,7 @@ console.log(fruits) // 5
 
 ### `reset`
 
-Sets a variable back to its initial value or state.
+Seta uma variável de volta ao seu valor ou estado iniciais.
 
 ```js
 const initialFruits = 5
@@ -207,9 +207,9 @@ console.log(fruits) // 5
 
 ### `remove`
 
-Removes something _from_ somewhere.
+Remove algo _de_ algum lugar.
 
-For example, if you have a collection of selected filters on a search page, removing one of them from the collection is `removeFilter`, **not** `deleteFilter` (and this is how you would naturally say it in English as well):
+Por exemplo, se vc tem uma coleção de filtros selecionados em uma página de busca, remove um deles da coleção seria `removeFilter`, **não** `deleteFilter` (e isto é como naturalmente você diria em Inglês):
 
 ```js
 function removeFilter(filterName, filters) {
@@ -220,13 +220,13 @@ const selectedFilters = ['price', 'availability', 'size']
 removeFilter('price', selectedFilters)
 ```
 
-> See also [delete](#delete).
+> Veja também [delete](#delete).
 
 ### `delete`
 
-Completely erases something from the realms of existence.
+Apaga completamente algo dos reinos da existência.
 
-Imagine you are a content editor, and there is that notorious post you wish to get rid of. Once you clicked a shiny "Delete post" button, the CMS performed a `deletePost` action, **not** `removePost`.
+Imagine que você é um editor de conteúdo, e existe um post notório que você quer se livrar. Uma vez que você clicar no botão brilhante "Deletar post", o CMS dispara uma ação de `deletePost`, **não** `removePost`.
 
 ```js
 function deletePost(id) {
@@ -234,19 +234,19 @@ function deletePost(id) {
 }
 ```
 
-> See also [remove](#remove).
+> Veja também [remove](#remove).
 
-> **`remove` or `delete`?**
+> **`remove` ou `delete`?**
 >
-> When the difference between `remove` and `delete` is not so obvious to you, I'd sugguest looking at their opposite actions - `add` and `create`.
-> The key difference between `add` and `create` is that `add` needs a destination while `create` **requires no destination**. You `add` an item _to somewhere_, but you don't "`create` it _to somewhere_".
-> Simply pair `remove` with `add` and `delete` with `create`.
+> Quando a diferença entre `remove` e `delete` não é tão óbvia pra você, Sugiro que olhe pra suas ações opostas - `add` e `create`.
+> A diferença chave entre `add` e `create` é que `add` precisa de um destino enquanto `create` **não precisa de um destino**. Você `add` (adiciona) um item _pra algum lugar_, mas você não cria "`create` em _algum lugar_".
+> Simplesmente pareie `remove` com `add` e `delete` com `create`.
 >
-> Explained in detail [here](https://github.com/kettanaito/naming-cheatsheet/issues/74#issue-1174942962).
+> Explicado em detalhes [aqui](https://github.com/kettanaito/naming-cheatsheet/issues/74#issue-1174942962).
 
 ### `compose`
 
-Creates new data from the existing one. Mostly applicable to strings, objects, or functions.
+Cria novo dado a partir de um existente. Aplicado na maioria das vezes pra strings, objetos, ou funções.
 
 ```js
 function composePageUrl(pageName, pageId) {
@@ -254,11 +254,11 @@ function composePageUrl(pageName, pageId) {
 }
 ```
 
-> See also [get](#get).
+> Veja também [get](#get).
 
 ### `handle`
 
-Handles an action. Often used when naming a callback method.
+Lida com uma ação. Muitas vezes usado quando precisamos nomear um método de callback (retorno).
 
 ```js
 function handleLinkClick() {
@@ -270,40 +270,40 @@ link.addEventListener('click', handleLinkClick)
 
 ---
 
-## Context
+## Contexto
 
-A domain that a function operates on.
+Um domínio no qual a função opera.
 
-A function is often an action on _something_. It is important to state what its operable domain is, or at least an expected data type.
+Uma função muitas das vezes é uma ação sobre _algo_. É importante declarar qual domínio operável é, ou ao menos um tipo de dado esperado.
 
 ```js
-/* A pure function operating with primitives */
+/* Uma função pura operando com primitivos */
 function filter(list, predicate) {
   return list.filter(predicate)
 }
 
-/* Function operating exactly on posts */
+/* Função operando exatamente com posts */
 function getRecentPosts(posts) {
   return filter(posts, (post) => post.date === Date.now())
 }
 ```
 
-> Some language-specific assumptions may allow omitting the context. For example, in JavaScript, it's common that `filter` operates on Array. Adding explicit `filterArray` would be unnecessary.
+> Algumas suposições específicas de linguagens podem permitir omitir o contexto. Por exemplo, em JavaScript, é comum que um `filtro` opere em Arrays (vetores). Adicionar explicitamente `filterArray` seria desnecessário.
 
 ---
 
-## Prefixes
+## Prefixos
 
-Prefix enhances the meaning of a variable. It is rarely used in function names.
+Prefixar realça o significado de uma variável. É raramente usado em nomes de função.
 
 ### `is`
 
-Describes a characteristic or state of the current context (usually `boolean`).
+Descreve uma característica ou estado do contexto atual (usualmente `boolean`).
 
 ```js
 const color = 'blue'
-const isBlue = color === 'blue' // characteristic
-const isPresent = true // state
+const isBlue = color === 'blue' // característica
+const isPresent = true // estado
 
 if (isBlue && isPresent) {
   console.log('Blue is present!')
@@ -312,20 +312,20 @@ if (isBlue && isPresent) {
 
 ### `has`
 
-Describes whether the current context possesses a certain value or state (usually `boolean`).
+Descreve se o contexto atual possui um certo valor ou estado (usualmente `boolean`).
 
 ```js
-/* Bad */
+/* Ruim */
 const isProductsExist = productsCount > 0
 const areProductsPresent = productsCount > 0
 
-/* Good */
+/* Bom */
 const hasProducts = productsCount > 0
 ```
 
 ### `should`
 
-Reflects a positive conditional statement (usually `boolean`) coupled with a certain action.
+Reflete uma declaração condicional positiva (usualmente `boolean`) casada com uma certa ação.
 
 ```js
 function shouldUpdateUrl(url, expectedUrl) {
@@ -335,12 +335,12 @@ function shouldUpdateUrl(url, expectedUrl) {
 
 ### `min`/`max`
 
-Represents a minimum or maximum value. Used when describing boundaries or limits.
+Representa o valor mínimo ou máximo. Usado ao descrever limites.
 
 ```js
 /**
- * Renders a random amount of posts within
- * the given min/max boundaries.
+ * Renderiza um valor aleatório de posts dentro de
+ * um dado limite mínimo/máximo.
  */
 function renderPosts(posts, minPosts, maxPosts) {
   return posts.slice(0, randomBetween(minPosts, maxPosts))
@@ -349,7 +349,7 @@ function renderPosts(posts, minPosts, maxPosts) {
 
 ### `prev`/`next`
 
-Indicate the previous or the next state of a variable in the current context. Used when describing state transitions.
+Indica o estado prévio ou posterior de uma variável no contexto atual. Usado ao descrever transição de estado.
 
 ```jsx
 async function getPosts() {
@@ -364,9 +364,7 @@ async function getPosts() {
 
 ## Singular e Plural
 
-Like a prefix, variable names can be made singular or plural depending on whether they hold a single value or multiple values.
-
-Como um prefixo, os nomes das variáveis podem ser colocados no singular ou no plural dependendo se eles contêm um único valor ou vários valores.
+Tal qual um prefixo, nomes de variávels podem estar no singular ou no plural dependendo se elas contém um valor único ou múltiplos valores.
 
 ```js
 /* Ruim */
